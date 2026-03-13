@@ -21,6 +21,8 @@ if re.search('^[ACGTU]+$', args.seq):
         print ('The sequence is DNA')
     elif re.search('U', args.seq) and not re.search('T', args.seq): # if it contains U and T the sequence is wrong
         print ('The sequence is RNA')
+    elif re.search('T', args.seq) and re.search('U', args.seq): # different message for when the seq has both U and T
+        raise ValueError('Sequence invalid: The sequence contains both T and U')
     else:
         print ('The sequence can be DNA or RNA')
 
